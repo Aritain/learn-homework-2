@@ -8,12 +8,22 @@
 
 """
 
+import csv
+
 def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+	people = [
+		{'name': 'David', 'age': '20', 'occupation':'Engineer'},
+		{'name': 'Rosa', 'age': '25', 'occupation':'Accountant'},
+		{'name': 'Marc', 'age': '30', 'occupation':'Lawyer'},
+		{'name': 'Ingrid', 'age': '35', 'occupation':'Doctor'},
+		{'name': 'Lewis', 'age': '40', 'occupation':'Manager'},
+	]
+	with open('people.csv', 'w', newline='') as file:
+		fields = ['name', 'age', 'occupation']
+		writer = csv.DictWriter(file, fields, delimiter = ';')
+		writer.writeheader()
+		for person in people:
+			writer.writerow(person)
 
 if __name__ == "__main__":
-    main()
+	main()
