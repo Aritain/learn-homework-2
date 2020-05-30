@@ -12,14 +12,17 @@
 """
 
 def main():
-	with open('referat.txt', 'r', encoding='utf-8') as file:
-		file_content = file.read()
-		
-	print(f"Файл состоит из {len(file_content)} символов")
-	print(f"Файл состоит из {len(file_content.split())} символов")
-	
-	with open('referat2.txt', 'w', encoding='utf-8') as file:
-		file.write(file_content.replace('.','!'))
+    with open('referat.txt', 'r', encoding='utf-8') as file:
+        file_content = file.read()
+    
+    symbol_count = len(file_content)
+    word_count = len(file_content.split())
+    
+    print(f"Файл состоит из {symbol_count} символов")
+    print(f"Файл состоит из {word_count} слов")
+    
+    with open('referat2.txt', 'w', encoding='utf-8') as file:
+        file.write(file_content.replace('.','!'))
 
 if __name__ == "__main__":
-	main()
+    main()
